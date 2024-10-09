@@ -8,18 +8,14 @@ const App = () => {
   const count = useSelector((state: RootState) => state.counter.value);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Counter: {count}</h1>
-      <button onClick={() => dispatch(incremented())}>Increment</button>
-      <button onClick={() => dispatch(decremented())}>Decrement</button>
-    </div>
+    <Provider store={store}>
+      <div style={{ padding: "20px" }}>
+        <h1>Counter: {count}</h1>
+        <button onClick={() => dispatch(incremented())}>Increment</button>
+        <button onClick={() => dispatch(decremented())}>Decrement</button>
+      </div>
+    </Provider>
   );
 };
 
-const RootApp = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
-
-export default RootApp;
+export default App;
