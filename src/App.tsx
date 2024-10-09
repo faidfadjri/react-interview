@@ -1,5 +1,5 @@
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { RootState, store } from "./redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./redux/store";
 import { decremented, incremented } from "./redux/slices";
 
 const App = () => {
@@ -8,13 +8,11 @@ const App = () => {
   const count = useSelector((state: RootState) => state.counter.value);
 
   return (
-    <Provider store={store}>
-      <div style={{ padding: "20px" }}>
-        <h1>Counter: {count}</h1>
-        <button onClick={() => dispatch(incremented())}>Increment</button>
-        <button onClick={() => dispatch(decremented())}>Decrement</button>
-      </div>
-    </Provider>
+    <div style={{ padding: "20px" }}>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => dispatch(incremented())}>Increment</button>
+      <button onClick={() => dispatch(decremented())}>Decrement</button>
+    </div>
   );
 };
 
